@@ -9,6 +9,18 @@ def get_user_input():
     float_list = [float(number) for number in string_list]
     return float_list
 
+def choose_options(float_list):
+    choice = ""
+    while (choice != "0"): 
+        choice = input("CHOOSE THE OPTIONS: \n 1. Calculate Average \n 2. Find Maximum and Minimum \n 3. Sort Temperature \n 4. Find Median \n 0. Exit \n")
+        if (choice == "1"): print ("Average = " + str(calc_average(float_list)))
+        elif (choice == "2"): print ("Min and Max = " + str(find_min_max(float_list)))
+        elif (choice == "3"): print ("Sorted Temperature = " + str(sort_temperature(float_list)))
+        elif (choice == "4"): print ("Median = " + str(calc_median_temperature(float_list)))
+        elif (choice == "0"): break
+        else: print("Invalid Input")
+    
+
 def calc_average(float_list):
     print("calc_average")
     total = sum(float_list)
@@ -43,10 +55,8 @@ def main():
     print("ET0735 (DevOps for AIoT) - Lab 2 - Introduction to Python")
     display_main_menu()
     float_list = get_user_input()
-    print ("Average = " + str(calc_average(float_list)))
-    print ("Min and Max = " + str(find_min_max(float_list)))
-    print ("Sorted Temperature = " + str(sort_temperature(float_list)))
-    print ("Median = " + str(calc_median_temperature(float_list)))
+    choose_options(float_list)
+
 
 if __name__=="__main__":
     main()
